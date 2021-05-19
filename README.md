@@ -1,4 +1,4 @@
-# Tree Detection and Height From Shadow visalization demo
+# Tree Detection and Height From Shadow visualization demo
 This repository contains the demo for visualizing the tree height detection output from the [Tree Detection and Height From Shadow](https://marketplace.up42.com/block/1e482528-6777-4895-a5c0-4433cfe8f9da) processing block in UP42. 
 
 For a quick demo on how to use the UP42 python libraries to create workflow and run the tree height processing block, please visit the original repository: [infrastructure-webinar-demo](https://github.com/thaisbendixen/infrastructure-webinar-demo)
