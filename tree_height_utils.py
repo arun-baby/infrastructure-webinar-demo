@@ -35,15 +35,14 @@ def cleaning_data(path_tree_results: str):
     return geo_trees_gdf, high_trees_gdf
 
 
-def get_kepler_config():
+def get_kepler_config(trees_gdf):
 # configuration for kepler map
- config = {'config': {'mapState': {'bearing': 12.732663821526033,
-                         'dragRotate': True,
+ config = {'config': {'mapState': {'dragRotate': True,
                          'isSplit': False,
-                         'latitude': 43.56307771903234,
-                         'longitude': -5.966771905350275,
-                         'pitch': 54.847690688748024,
-                         'zoom': 14.164356912639555},
+                         'pitch': 50,
+                                  'zoom': 16.0,
+                                  'latitude':trees_gdf['geometry'][0].centroid.y,
+                                  'longitude': trees_gdf['geometry'][0].centroid.x},
             'mapStyle': {'mapStyles': {},
                          'styleType': 'satellite',
                          'threeDBuildingColor': [9.665468314072013,
@@ -94,7 +93,7 @@ def get_kepler_config():
                                                                              'name': 'Global '
                                                                                      'Warming',
                                                                              'type': 'sequential'},
-                                                              'elevationScale': 1,
+                                                              'elevationScale': 0.3,
                                                               'enable3d': True,
                                                               'filled': True,
                                                               'heightRange': [0,
@@ -159,7 +158,7 @@ def get_kepler_config():
                                                                              'name': 'Global '
                                                                                      'Warming',
                                                                              'type': 'sequential'},
-                                                              'elevationScale': 1,
+                                                              'elevationScale': 0.3,
                                                               'enable3d': True,
                                                               'filled': True,
                                                               'heightRange': [0,
@@ -224,7 +223,7 @@ def get_kepler_config():
                                                                              'name': 'Global '
                                                                                      'Warming',
                                                                              'type': 'sequential'},
-                                                              'elevationScale': 5,
+                                                              'elevationScale': 0.25,
                                                               'enable3d': False,
                                                               'filled': False,
                                                               'heightRange': [0,
