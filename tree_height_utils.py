@@ -37,232 +37,169 @@ def cleaning_data(path_tree_results: str):
 
 def get_kepler_config(trees_gdf):
 # configuration for kepler map
- config = {'config': {'mapState': {'dragRotate': True,
-                         'isSplit': False,
-                         'pitch': 50,
-                                  'zoom': 16.0,
-                                  'latitude':trees_gdf['geometry'][0].centroid.y,
-                                  'longitude': trees_gdf['geometry'][0].centroid.x},
-            'mapStyle': {'mapStyles': {},
-                         'styleType': 'satellite',
-                         'threeDBuildingColor': [9.665468314072013,
-                                                 17.18305478057247,
-                                                 31.1442867897876],
-                         'topLayerGroups': {},
-                         'visibleLayerGroups': {}},
-            'visState': {'animationConfig': {'currentTime': None, 'speed': 1},
-                         'filters': [],
-                         'interactionConfig': {'brush': {'enabled': False,
-                                                         'size': 0.5},
-                                               'coordinate': {'enabled': False},
-                                               'geocoder': {'enabled': False},
-                                               'tooltip': {'compareMode': False,
-                                                           'compareType': 'absolute',
-                                                           'enabled': True,
-                                                           'fieldsToShow': {'all trees': [{'format': None,
-                                                                                           'name': 'id'},
-                                                                                          {'format': None,
-                                                                                           'name': 'height'}],
-                                                                            'high trees': [{'format': None,
-                                                                                            'name': 'id'},
-                                                                                           {'format': None,
-                                                                                            'name': 'height'}],
-                                                                            'train lines': []}}},
-                         'layerBlending': 'normal',
-                         'layers': [{'config': {'color': [227, 26, 26],
-                                                'columns': {'geojson': 'geometry'},
-                                                'dataId': 'high trees',
-                                                'hidden': False,
-                                                'isVisible': True,
-                                                'label': 'high trees',
-                                                'textLabel': [{'alignment': 'center',
-                                                               'anchor': 'start',
-                                                               'color': [255,
-                                                                         255,
-                                                                         255],
-                                                               'field': None,
-                                                               'offset': [0, 0],
-                                                               'size': 18}],
-                                                'visConfig': {'colorRange': {'category': 'Uber',
-                                                                             'colors': ['#5A1846',
-                                                                                        '#900C3F',
-                                                                                        '#C70039',
-                                                                                        '#E3611C',
-                                                                                        '#F1920E',
-                                                                                        '#FFC300'],
-                                                                             'name': 'Global '
-                                                                                     'Warming',
-                                                                             'type': 'sequential'},
-                                                              'elevationScale': 0.3,
-                                                              'enable3d': True,
-                                                              'filled': True,
-                                                              'heightRange': [0,
-                                                                              500],
-                                                              'opacity': 0.8,
-                                                              'radius': 10,
-                                                              'radiusRange': [0,
-                                                                              50],
-                                                              'sizeRange': [0,
-                                                                            10],
-                                                              'strokeColor': [255,
-                                                                              203,
-                                                                              153],
-                                                              'strokeColorRange': {'category': 'Uber',
-                                                                                   'colors': ['#5A1846',
-                                                                                              '#900C3F',
-                                                                                              '#C70039',
-                                                                                              '#E3611C',
-                                                                                              '#F1920E',
-                                                                                              '#FFC300'],
-                                                                                   'name': 'Global '
-                                                                                           'Warming',
-                                                                                   'type': 'sequential'},
-                                                              'strokeOpacity': 0.8,
-                                                              'stroked': False,
-                                                              'thickness': 0.5,
-                                                              'wireframe': False}},
-                                     'id': 'rtsq8e',
-                                     'type': 'geojson',
-                                     'visualChannels': {'colorField': None,
-                                                        'colorScale': 'quantile',
-                                                        'heightField': {'name': 'height',
-                                                                        'type': 'real'},
-                                                        'heightScale': 'linear',
-                                                        'radiusField': None,
-                                                        'radiusScale': 'linear',
-                                                        'sizeField': None,
-                                                        'sizeScale': 'linear',
-                                                        'strokeColorField': None,
-                                                        'strokeColorScale': 'quantile'}},
-                                    {'config': {'color': [182, 228, 144],
-                                                'columns': {'geojson': 'geometry'},
-                                                'dataId': 'all trees',
-                                                'hidden': False,
-                                                'isVisible': True,
-                                                'label': 'all trees',
-                                                'textLabel': [{'alignment': 'center',
-                                                               'anchor': 'start',
-                                                               'color': [255,
-                                                                         255,
-                                                                         255],
-                                                               'field': None,
-                                                               'offset': [0, 0],
-                                                               'size': 18}],
-                                                'visConfig': {'colorRange': {'category': 'Uber',
-                                                                             'colors': ['#5A1846',
-                                                                                        '#900C3F',
-                                                                                        '#C70039',
-                                                                                        '#E3611C',
-                                                                                        '#F1920E',
-                                                                                        '#FFC300'],
-                                                                             'name': 'Global '
-                                                                                     'Warming',
-                                                                             'type': 'sequential'},
-                                                              'elevationScale': 0.3,
-                                                              'enable3d': True,
-                                                              'filled': True,
-                                                              'heightRange': [0,
-                                                                              500],
-                                                              'opacity': 0.8,
-                                                              'radius': 10,
-                                                              'radiusRange': [0,
-                                                                              50],
-                                                              'sizeRange': [0,
-                                                                            10],
-                                                              'strokeColor': [130,
-                                                                              154,
-                                                                              227],
-                                                              'strokeColorRange': {'category': 'Uber',
-                                                                                   'colors': ['#5A1846',
-                                                                                              '#900C3F',
-                                                                                              '#C70039',
-                                                                                              '#E3611C',
-                                                                                              '#F1920E',
-                                                                                              '#FFC300'],
-                                                                                   'name': 'Global '
-                                                                                           'Warming',
-                                                                                   'type': 'sequential'},
-                                                              'strokeOpacity': 0.8,
-                                                              'stroked': True,
-                                                              'thickness': 0.5,
-                                                              'wireframe': False}},
-                                     'id': 'svkcn82',
-                                     'type': 'geojson',
-                                     'visualChannels': {'colorField': None,
-                                                        'colorScale': 'quantile',
-                                                        'heightField': {'name': 'height',
-                                                                        'type': 'real'},
-                                                        'heightScale': 'linear',
-                                                        'radiusField': None,
-                                                        'radiusScale': 'linear',
-                                                        'sizeField': None,
-                                                        'sizeScale': 'linear',
-                                                        'strokeColorField': None,
-                                                        'strokeColorScale': 'quantile'}},
-                                    {'config': {'color': [248, 149, 112],
-                                                'columns': {'geojson': 'geometry'},
-                                                'dataId': 'train lines',
-                                                'hidden': False,
-                                                'isVisible': True,
-                                                'label': 'train lines',
-                                                'textLabel': [{'alignment': 'center',
-                                                               'anchor': 'start',
-                                                               'color': [255,
-                                                                         255,
-                                                                         255],
-                                                               'field': None,
-                                                               'offset': [0, 0],
-                                                               'size': 18}],
-                                                'visConfig': {'colorRange': {'category': 'Uber',
-                                                                             'colors': ['#5A1846',
-                                                                                        '#900C3F',
-                                                                                        '#C70039',
-                                                                                        '#E3611C',
-                                                                                        '#F1920E',
-                                                                                        '#FFC300'],
-                                                                             'name': 'Global '
-                                                                                     'Warming',
-                                                                             'type': 'sequential'},
-                                                              'elevationScale': 0.25,
-                                                              'enable3d': False,
-                                                              'filled': False,
-                                                              'heightRange': [0,
-                                                                              500],
-                                                              'opacity': 0.8,
-                                                              'radius': 10,
-                                                              'radiusRange': [0,
-                                                                              50],
-                                                              'sizeRange': [0,
-                                                                            10],
-                                                              'strokeColor': [184,
-                                                                              110,
-                                                                              218],
-                                                              'strokeColorRange': {'category': 'Uber',
-                                                                                   'colors': ['#5A1846',
-                                                                                              '#900C3F',
-                                                                                              '#C70039',
-                                                                                              '#E3611C',
-                                                                                              '#F1920E',
-                                                                                              '#FFC300'],
-                                                                                   'name': 'Global '
-                                                                                           'Warming',
-                                                                                   'type': 'sequential'},
-                                                              'strokeOpacity': 0.8,
-                                                              'stroked': True,
-                                                              'thickness': 1.7,
-                                                              'wireframe': False}},
-                                     'id': 'h9l2b0h',
-                                     'type': 'geojson',
-                                     'visualChannels': {'colorField': None,
-                                                        'colorScale': 'quantile',
-                                                        'heightField': None,
-                                                        'heightScale': 'linear',
-                                                        'radiusField': None,
-                                                        'radiusScale': 'linear',
-                                                        'sizeField': None,
-                                                        'sizeScale': 'linear',
-                                                        'strokeColorField': None,
-                                                        'strokeColorScale': 'quantile'}}],
-                         'splitMaps': []}},
- 'version': 'v1'}
+ config = {
+  "version": "v1",
+  "config": {
+    "visState": {
+      "filters": [],
+      "layers": [
+        {
+          "id": "j688u9",
+          "type": "geojson",
+          "config": {
+            "dataId": "all trees",
+            "label": "all trees",
+            "color": [
+              18,
+              92,
+              119
+            ],
+            "columns": {
+              "geojson": "geometry"
+            },
+            "isVisible": True,
+            "visConfig": {
+              "opacity": 0.8,
+              "strokeOpacity": 0.8,
+              "thickness": 0.5,
+              "strokeColor": [
+                77,
+                193,
+                156
+              ],
+              "colorRange": {
+                "name": "Custom Palette",
+                "type": "custom",
+                "category": "Custom",
+                "colors": [
+                  "#fbf36a",
+                  "#fe950f",
+                  "#ff0004"
+                ]
+              },
+              "strokeColorRange": {
+                "name": "Global Warming",
+                "type": "sequential",
+                "category": "Uber",
+                "colors": [
+                  "#5A1846",
+                  "#900C3F",
+                  "#C70039",
+                  "#E3611C",
+                  "#F1920E",
+                  "#FFC300"
+                ]
+              },
+              "radius": 10,
+              "sizeRange": [
+                0,
+                10
+              ],
+              "radiusRange": [
+                0,
+                50
+              ],
+              "heightRange": [
+                0,
+                500
+              ],
+              "elevationScale": 0.2,
+              "stroked": False,
+              "filled": True,
+              "enable3d": True,
+              "wireframe": False
+            },
+            "hidden": False,
+            "textLabel": [
+              {
+                "field": None,
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "size": 18,
+                "offset": [
+                  0,
+                  0
+                ],
+                "anchor": "start",
+                "alignment": "center"
+              }
+            ]
+          },
+          "visualChannels": {
+            "colorField": {
+              "name": "height",
+              "type": "real"
+            },
+            "colorScale": "quantile",
+            "sizeField": None,
+            "sizeScale": "linear",
+            "strokeColorField": None,
+            "strokeColorScale": "quantile",
+            "heightField": {
+              "name": "height",
+              "type": "real"
+            },
+            "heightScale": "linear",
+            "radiusField": None,
+            "radiusScale": "linear"
+          }
+        }
+      ],
+      "interactionConfig": {
+        "tooltip": {
+          "fieldsToShow": {
+            "all trees": [
+              {
+                "name": "height",
+                "format": None
+              }
+            ]
+          },
+          "compareMode": False,
+          "compareType": "absolute",
+          "enabled": True
+        },
+        "brush": {
+          "size": 0.5,
+          "enabled": False
+        },
+        "geocoder": {
+          "enabled": False
+        },
+        "coordinate": {
+          "enabled": False
+        }
+      },
+      "layerBlending": "normal",
+      "splitMaps": [],
+      "animationConfig": {
+        "currentTime": None,
+        "speed": 1
+      }
+    },
+    "mapState": {
+      "bearing": 24,
+      "dragRotate": True,
+      "latitude": trees_gdf['geometry'][0].centroid.y,
+      'longitude': trees_gdf['geometry'][0].centroid.x,
+      "pitch": 50,
+      "zoom": 15.9,
+      "isSplit": False
+    },
+    "mapStyle": {
+      "styleType": "satellite",
+      "topLayerGroups": {},
+      "visibleLayerGroups": {},
+      "threeDBuildingColor": [
+        3.7245996603793508,
+        6.518049405663864,
+        13.036098811327728
+      ],
+      "mapStyles": {}
+    }
+  }
+}
  return config
